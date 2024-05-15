@@ -22,7 +22,7 @@ const ListEmployeeComponent = () =>{
     }
 
     function updateEmployee(id){
-        navigate(`edit-employee/${id}`);
+        navigate(`/edit-employee/${id}`);
     }
 
     function removeEmployee(id){

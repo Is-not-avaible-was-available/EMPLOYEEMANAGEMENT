@@ -48,6 +48,48 @@ const AddEmployeeComponent = () =>{
         
    }   , [id]);
     
+   function validateForm(){
+    let valid = true;
+
+    const errorCopy = {...errors};
+    if(firstName.trim()){
+        errorCopy.firstName = "";
+    }else{
+        errorCopy.firstName = "First name is required!";
+        valid = false;
+    }
+
+    if(lastName.trim()){
+        errorCopy.lastName = "";
+    }else{
+        errorCopy.lastName = "Last name is required!";
+        valid = false;
+    }
+
+    if(email.trim()){
+        errorCopy.email = "";
+    }else{
+        errorCopy.email = "Email is required!";
+        valid = false;
+    }
+
+    if(password.trim()){
+        errorCopy.password = "";
+    }else{
+        errorCopy.password = "Password is required!";
+        valid = false;
+    }
+
+    if(title.trim()){
+        errorCopy.title = "";
+    }else{
+        errorCopy.title = "Title is required!";
+        valid = false;
+    }
+
+    setErrors(errorCopy);
+    return valid;
+}
 
     function handleClick(e){
         e.preventDefault();
@@ -79,54 +121,13 @@ const AddEmployeeComponent = () =>{
         
     }
 
-    function validateForm(){
-        let valid = true;
-
-        const errorCopy = {...error};
-        if(firstName.trim()){
-            errorCopy.firstName = "";
-        }else{
-            errorCopy.firstName = "First name is required!";
-            valid = false;
-        }
-
-        if(lastName.trim()){
-            errorCopy.lastName = "";
-        }else{
-            errorCopy.lastName = "Last name is required!";
-            valid = false;
-        }
-
-        if(email.trim()){
-            errorCopy.email = "";
-        }else{
-            errorCopy.email = "Email is required!";
-            valid = false;
-        }
-
-        if(password.trim()){
-            errorCopy.password = "";
-        }else{
-            errorCopy.password = "Password is required!";
-            valid = false;
-        }
-
-        if(title.trim()){
-            errorCopy.title = "";
-        }else{
-            errorCopy.title = "Title is required!";
-            valid = false;
-        }
-
-        setErrors(errorCopy);
-        return valid;
-    }
+    
 
     function pageTitle(){
         if(id){
             return  <h2 className="text-center">Update Employee</h2>;
         }else{
-            <h2 className="text-center">Employee List</h2>
+            return <h2 className="text-center">Add Employee</h2>;
         }
     }
 
